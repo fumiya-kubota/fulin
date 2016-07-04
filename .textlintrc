@@ -1,0 +1,7 @@
+{
+    "rules" : {
+        "preset-japanese": {
+            "spellcheck-tech-word": false
+       }
+    }
+}
