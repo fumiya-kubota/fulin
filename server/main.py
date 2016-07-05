@@ -3,6 +3,7 @@ from flask import request
 import subprocess
 from tempfile import mkstemp
 import os
+import json
 
 
 app = Flask(__name__)
@@ -25,7 +26,10 @@ def lint():
         stdout=subprocess.PIPE
     ).communicate()
     os.remove(file_path)
-    return str(output, encoding='utf-8')
+
+    output = json.loads(str(output, encoding='utf-8'))
+    output = output[0]
+    return json.dumps(output['messages'])
 
 
 if __name__ == "__main__":
