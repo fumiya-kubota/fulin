@@ -16,18 +16,21 @@ def root():
 
 @app.route('/', methods=['POST'])
 def lint():
-    _, file_path = mkstemp(dir=os.path.curdir, suffix='.txt')
-    with open(file_path, 'w') as fp:
+    _, input_path = mkstemp(dir=os.path.curdir, suffix='.txt')
+    with open(input_path, 'w') as fp:
         data = request.get_data()
         data = str(data, encoding='utf-8')
         fp.write(data)
-    output, _ = subprocess.Popen(
-        ['../node_modules/textlint/bin/textlint.js', file_path, '--format', 'json'],
-        stdout=subprocess.PIPE
-    ).communicate()
-    os.remove(file_path)
 
-    output = json.loads(str(output, encoding='utf-8'))
+    _, output_path = mkstemp(dir=os.path.curdir, suffix='.json')
+    with open(output_path, 'wb') as fp:
+        subprocess.Popen(
+            ['../node_modules/textlint/bin/textlint.js', input_path, '--format', 'json'],
+            stdout=fp
+        ).communicate()
+    os.remove(input_path)
+    output = json.load(open(output_path))
+    os.remove(output_path)
     output = output[0]
     return json.dumps(output['messages'])
 
