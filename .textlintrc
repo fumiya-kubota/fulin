@@ -3,10 +3,10 @@
         "preset-japanese": {
             "spellcheck-tech-word": false
         },
-        "textlint-rule-ja-yahoo-kousei": {
+        "ja-yahoo-kousei": {
             "ignores": {
-                "用字言い換え":["箇所"],
-                "用字":["箇所"]
+                "用字": "*",
+                "表外漢字あり": "*"
             }
         }
     }
