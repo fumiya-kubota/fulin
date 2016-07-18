@@ -14,7 +14,7 @@ def root():
     return 'Hello'
 
 
-@app.route('/', methods=['POST'])
+@app.route('/check', methods=['POST'])
 def lint():
     _, input_path = mkstemp(dir=os.path.curdir, suffix='.txt')
     with open(input_path, 'w') as fp:
