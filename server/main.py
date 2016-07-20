@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask import request
 import subprocess
 from tempfile import mkstemp
@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def root():
-    return 'Hello'
+    return render_template('index.html')
 
 
 @app.route('/check', methods=['POST'])

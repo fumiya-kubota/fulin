@@ -1,0 +1,50 @@
+@import "../../node_modules/normalize.css/normalize";
+@import "./docs";
+@import "./codemirror";
+
+
+body {
+    padding: 16px;
+}
+
+h1 {
+    border-bottom: 1px solid #333;
+}
+
+#check {
+    margin-top: 16px;
+    width: 100%;
+}
+
+table {
+    margin: 16px 0 32px;
+    border-collapse: collapse;
+    border: solid 1px #333;
+    width: 100%;
+    .lines {
+        width: 100px;
+    }
+
+    tr:nth-child(2n+0) {
+        background-color: #eee;
+    }
+    th, td {
+        border: solid 1px #333;
+        padding: 4px;
+    }
+    th {
+        background-color: #E4007F;
+    }
+}
+table
+
+.CodeMirror {
+    border: 1px solid silver;
+    height: 400px;
+}
+.CodeMirror-empty.CodeMirror-focused {
+    outline: none;
+}
+.CodeMirror pre.CodeMirror-placeholder {
+    color: #999;
+}

@@ -125,3 +125,8 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+tmp/
+
+server/static/style/
+server/static/scripts/
