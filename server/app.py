@@ -34,6 +34,3 @@ def lint():
     output = output[0]
     return json.dumps(output['messages'])
 
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0')
