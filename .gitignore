@@ -130,3 +130,5 @@ tmp/
 
 server/static/style/
 server/static/scripts/
+server/*.json
+nohup.out
